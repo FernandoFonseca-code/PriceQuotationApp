@@ -23,6 +23,11 @@ namespace PriceQuotationApp.Controllers
         {
             return View(calculations);
         }
+
+        public IActionResult Reset()
+        {
+            return View("Index", new Calculations());
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
