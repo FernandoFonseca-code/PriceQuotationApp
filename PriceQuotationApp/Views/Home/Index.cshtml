@@ -1,9 +1,16 @@
-﻿@{
+﻿@model PriceQuotationApp.Models.Calculations
+
+@{
     ViewData["Title"] = "Price Quotation";
 }
 
-<div class="text-bg-primary">
-    <h1 class="display-4">Price Quotation</h1>
-    <p></p>
-</div>
+<h1 class="display-3 fw-bold text-primary">Price Quotation</h1>
 
+<form asp-action="Index" method="post">
+    <p>Subtotal: <input asp-for="Subtotal" class="form-control" style="display: inline-block; width: auto;" /></p>
+    <p>Discount Percent: <input asp-for="DiscountPercent" class="form-control" style="display: inline-block; width: auto;" /></p>
+    <p>Discount Amount: @Model.DiscountAmount.ToString("C")</p>
+    <p>Total: @Model.Total.ToString("C")</p>
+    <button type="submit" class="btn btn-primary">Calculate</button>
+    <button type="reset" class="btn-danger" style="display: inline-block; width: auto;">Clear</button>
+</form>

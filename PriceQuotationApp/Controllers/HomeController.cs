@@ -15,14 +15,14 @@ namespace PriceQuotationApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var calculations = new Calculations();
+            return View(calculations);
         }
-
-        public IActionResult Privacy()
+        [HttpPost]
+        public IActionResult Index(Calculations calculations)
         {
-            return View();
+            return View(calculations);
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
