@@ -12,21 +12,22 @@ namespace PriceQuotationApp.Controllers
         {
             _logger = logger;
         }
-
+        [HttpGet]
         public IActionResult Index()
         {
-            var calculations = new Calculations();
-            return View(calculations);
+            var model = new Calculations();
+            return View(model);
         }
         [HttpPost]
-        public IActionResult Index(Calculations calculations)
+        public IActionResult Index(Calculations model)
         {
-            return View(calculations);
+            return View(model);
         }
 
         public IActionResult Reset()
         {
-            return View("Index", new Calculations());
+            var model = new Calculations();
+            return View("Index", model);
         }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
